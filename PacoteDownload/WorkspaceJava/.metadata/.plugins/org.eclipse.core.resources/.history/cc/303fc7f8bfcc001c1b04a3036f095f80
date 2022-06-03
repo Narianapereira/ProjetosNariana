@@ -1,0 +1,39 @@
+package Métodos;
+
+import javax.swing.JOptionPane;
+
+public class Treinamento {
+
+	public static void main(String[] args) {
+
+		int peso = Integer.parseInt(JOptionPane.showInputDialog("Informe seu peso."));
+		
+		while (peso <=0) {
+			mostraErroPeso();
+			peso = Integer.parseInt(JOptionPane.showInputDialog("Informe seu peso."));
+		}
+		
+		double altura = Double.parseDouble(JOptionPane.showInputDialog("Informe sua altura."));
+
+		while (altura <=0) {
+			mostraErroAltura();
+			altura = Double.parseDouble("Informe sua altura.");
+		}
+	}
+
+	public static double calculaIndice(int peso, double altura) {
+		return 3.5;
+	}
+
+	public static void verificaIndice(double imc) {
+
+	}
+
+	public static void mostraErroPeso() {
+		JOptionPane.showMessageDialog(null, "O peso digitado é inválido.");
+	}
+
+	public static void mostraErroAltura() {
+		JOptionPane.showMessageDialog(null, "A altura é inválida");
+	}
+}

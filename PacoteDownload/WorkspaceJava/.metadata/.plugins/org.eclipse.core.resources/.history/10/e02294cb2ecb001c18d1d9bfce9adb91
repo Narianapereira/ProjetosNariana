@@ -1,0 +1,35 @@
+package Lista2;
+
+import javax.swing.JOptionPane;
+
+public class L2Ex1 {
+
+	public static void main(String[] args) {
+		/*
+		 * Faça um programa que receba um vetor de valores e mostre a quantidade de
+		 * valores negativos. Os valores e o tamanho do vetor devem ser informados pelo
+		 * usuário.
+		 */
+// criei uma variável para definir o tamanho do vetor e perguntei ao usuário
+		int tamanhoVetor = Integer.parseInt(JOptionPane.showInputDialog("Digite o tamanho do vetor."));
+		// atribuí o tamanho do vetor escolhido pelo usuário
+		while (tamanhoVetor < 0) {
+			tamanhoVetor = Integer.parseInt(
+					JOptionPane.showInputDialog("O tamanho do vetor deve ser maior que 0. Digite o tamanho do vetor."));
+		}
+		int[] valores = new int[tamanhoVetor];
+		// criei uma variável para somar os negativos
+		int negativos = 0;
+
+		// contadora para solicitar os numeros conforme o tamanho do vetor;
+		for (int i = 0; i < tamanhoVetor; i++) {
+			valores[i] = Integer.parseInt(JOptionPane.showInputDialog("Insira o " + (i + 1) + "º valor."));
+			// condição para somar os valores caso forem negativos
+			if (valores[i] < 0) {
+				negativos = negativos + 1;
+			}
+		}
+		JOptionPane.showMessageDialog(null, "O total de valores negativos é de " + negativos);
+	}
+
+}

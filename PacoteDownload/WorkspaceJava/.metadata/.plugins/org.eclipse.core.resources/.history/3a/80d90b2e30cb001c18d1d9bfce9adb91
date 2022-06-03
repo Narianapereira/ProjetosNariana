@@ -1,0 +1,75 @@
+package Lista2;
+
+import java.text.DecimalFormat;
+
+import javax.swing.JOptionPane;
+
+public class L2Ex5 {
+
+	public static void main(String[] args) {
+		/*
+		 * Faça um programa que solicite alguns dados dos usuários que frequentam um
+		 * clube. O programa deve solicitar a idade, se a pessoa é fumante ou não (1-
+		 * SIM, 2- NÃO), seu salário líquido e há quanto tempo frequenta o clube (em
+		 * meses). O usuário deverá digitar “encerrar” quando não tiver mais pessoas
+		 * para registrar. Como dados de saída, o programa deve exibir: A média das
+		 * idades das pessoas; A média salarial das pessoas; Quantos são fumantes e
+		 * quantos não são fumantes; A porcentagem de pessoas que frequentam o clube há
+		 * mais de 03 meses.
+		 */
+
+		int fumante = 0;
+		double salario = 0;
+		int tempoFrequenta = 0;
+		int mediaIdade = 0;
+		// quantidade de usuarios
+		int quantidade = 0;
+		int quantidadeFumante = 0;
+		int quantidadeNaoFumante = 0;
+		int frequentadores3Meses = 0;
+		double mediaSalarial = 0;
+		// porcentagem que frequenta a mais de três meses
+		int porcentagemFrequentadores = 0;
+		// validar se continua o cadastro
+		String finalizar = "continuar";
+		DecimalFormat df = new DecimalFormat("0.00");
+		
+
+		do {
+
+			int idade = Integer.parseInt(JOptionPane.showInputDialog("Qual a idade do usuário?"));
+			// calcula a quantidade de usuarios
+			quantidade = quantidade + 1;
+			// calcula a média de idade
+			mediaIdade = ((mediaIdade + idade) / quantidade);
+			fumante = Integer.parseInt(JOptionPane.showInputDialog("O usuário é fumante? \n 1 - Sim, \n 2 - Não "));
+			// calcula a quantidade de fumantes e nao fumantes
+			if (fumante == 1) {
+				quantidadeFumante = quantidadeFumante + 1;
+			} else {
+				quantidadeNaoFumante = quantidadeNaoFumante + 1;
+			}
+			salario = Double.parseDouble(JOptionPane.showInputDialog("Qual o salário líquido do usuário?"));
+			// calcula média salarial
+			mediaSalarial = ((mediaSalarial + salario) / quantidade);
+			tempoFrequenta = Integer.parseInt(JOptionPane.showInputDialog("Quantos meses frequenta o clube?"));
+			// calcula quantos frequentam a mais de 3 meses
+			if (tempoFrequenta > 3) {
+				frequentadores3Meses = frequentadores3Meses + 1;
+				// transforma em porcentagem a quantidade de frquentadores
+				porcentagemFrequentadores = ((frequentadores3Meses * 100) / quantidade);
+			}
+			// valida a continuação
+			finalizar = JOptionPane.showInputDialog(
+					"Se não deseja cadastrar mais usuários, digite 'encerra', se deseja, digite 'continuar'.");
+		}while (!finalizar.equals("encerra"));
+		// imprime
+		JOptionPane.showMessageDialog(null, "A média de idade dos usuários é " + mediaIdade
+				+ " anos e a média salarial é R$ " + df.format(mediaSalarial) + ".");
+		JOptionPane.showMessageDialog(null, "A quantidade de fumantes é " + quantidadeFumante
+				+ " e a quantidade de não fumantes é " + quantidadeNaoFumante + ".");
+		JOptionPane.showMessageDialog(null, " A porcentagem de usuários que frequentam o clube a mais de 3 meses é de "
+				+ porcentagemFrequentadores + "%.");
+	}
+
+}

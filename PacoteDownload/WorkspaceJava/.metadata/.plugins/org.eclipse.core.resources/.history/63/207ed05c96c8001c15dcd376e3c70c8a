@@ -1,0 +1,47 @@
+package Lista2;
+
+import javax.swing.JOptionPane;
+
+public class L2Ex7 {
+
+	public static void main(String[] args) {
+
+		double[][] notas = new double[4][3];
+		double maiorNota = 0;
+		String disciplinaMaiorNota = "matemática";
+		int disciplinaMedia = 1;
+		double somaMat = 0;
+		double mediaMat = 0;
+		int c = 0;
+		int l = 0;
+
+		for (l = 0; l < 4; l++) {
+			for (c = 0; c < 3; c++) {
+				notas[l][c] = Double.parseDouble(JOptionPane.showInputDialog(
+						"Digite o valor da nota da " + (l + 1) + "ª linha na " + (c + 1) + " coluna."));
+				if (notas[l][c] > maiorNota) {
+					maiorNota = notas[l][c];
+					if (c == 1) {
+						disciplinaMaiorNota = "matemática";
+					} else if (c == 2) {
+						disciplinaMaiorNota = "física";
+					} else {
+						disciplinaMaiorNota = "química";
+					}
+				}
+			}
+		}
+		disciplinaMedia = Integer.parseInt(JOptionPane.showInputDialog(
+				"Qual matéria você deseja ver a média? \n 1 - Matemática, \n 2 - Física, \n 3 - Química"));
+		// terminar o calculo da media da materia escolhida.
+		
+			for (l = 0; l < 4; l++) {
+				somaMat = somaMat + notas[l][disciplinaMedia];
+			}
+		
+
+		mediaMat = somaMat / 4;
+		JOptionPane.showMessageDialog(null, mediaMat);
+	}
+
+}

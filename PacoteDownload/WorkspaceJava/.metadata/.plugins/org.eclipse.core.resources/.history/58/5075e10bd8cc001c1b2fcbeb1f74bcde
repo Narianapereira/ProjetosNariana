@@ -1,0 +1,75 @@
+package Métodos;
+
+import javax.swing.JOptionPane;
+
+public class LMetodosEx2 {
+
+	public static void main(String[] args) {
+		/*
+		 * Faça um programa que receba as três notas de um aluno e pergunte ao professor
+		 * qual média ele deseja calcular: aritmética ou ponderada. Se for a média
+		 * ponderada, os pesos de cada nota devem ser informados. Cada média deverá ser
+		 * calculada por um método; Os dois métodos devem receber como parâmetros as
+		 * notas; No caso do método da média ponderada, além das notas, o método deverá
+		 * receber também os pesos, que devem ser previamente solicitados ao usuário; Os
+		 * dois métodos devem retornar a média; Um método deve ser criado para receber a
+		 * média final e mostrar se o aluno está aprovado ou reprovado, considerando que
+		 * a média mínima para aprovação é 7.
+		 */
+
+		double[] notas = new double[3];
+		double[] pesos = new double[3];
+		double mediaAritmetica = 0;
+		int tipoNota = 0;
+		int i = 0;
+		double mediaFinal = 0;
+
+		JOptionPane.showMessageDialog(null, "Esse programa irá calcular a média aritmética ou ponderada de 3 notas");
+
+		for (i = 0; i < 3; i++) {
+			notas[i] = Double.parseDouble(JOptionPane.showInputDialog("Insira a " + (i + 1) + "ª nota."));
+		}
+
+		tipoNota = Integer.parseInt(
+				JOptionPane.showInputDialog("Qual média você deseja calcular? \n 1 - Aritmética \n 2 - Ponderada"));
+
+		if (tipoNota == 2) {
+			for (i = 0; i < 3; i++) {
+				pesos[i] = Double.parseDouble(JOptionPane.showInputDialog("Insira o peso da " + (i + 1) + "ª nota."));
+			}
+			mediaFinal = calculaMediaPonderada(notas, pesos);
+			JOptionPane.showMessageDialog(null, "A média é " + mediaFinal);
+
+		} else if (tipoNota == 1) {
+			mediaFinal = calculaMediaAritmetica(notas);
+			JOptionPane.showMessageDialog(null, "A média é " + mediaFinal);
+		}
+		mostraResultadoFinal(mediaFinal);
+	}
+
+	public static double calculaMediaAritmetica(double notas[]) {
+		double somaMedias = 0;
+		double mediaAritmetica = 0;
+		for (int i = 0; i < 3; i++) {
+			somaMedias = somaMedias + notas[i];
+			mediaAritmetica = somaMedias / 3;
+		}
+
+		return mediaAritmetica;
+	}
+
+	public static double calculaMediaPonderada(double notas[], double pesos[]) {
+		double mediaPonderada = (notas[1] * pesos[1]) + (notas[2] * pesos[2]) + (notas[3] * pesos[3]);
+		return mediaPonderada;
+	}
+
+	public static void mostraResultadoFinal(double mediaFinal) {
+
+		if (mediaFinal >= 7) {
+			JOptionPane.showMessageDialog(null, "O aluno está aprovado");
+		} else {
+			JOptionPane.showMessageDialog(null, "O aluno está reprovado");
+		}
+	}
+
+}
