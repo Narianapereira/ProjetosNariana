@@ -1,2 +1,2 @@
 # ProjetosNariana
-Códigos criados durante o módulo de Lógica de Programação no curso de ADS/SENAI
+Códigos criados durante o curso de Análise e Desenvolvimento de Sistemas do SENAI.
