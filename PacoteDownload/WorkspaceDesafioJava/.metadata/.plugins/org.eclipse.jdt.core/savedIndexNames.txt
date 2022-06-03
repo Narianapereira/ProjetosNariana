@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Nariana Pereira\Documents\ADS\WorkspaceDesafioJava\.metadata\.plugins\org.eclipse.jdt.core
+3507570039.index
+1865797976.index
+3825695407.index
