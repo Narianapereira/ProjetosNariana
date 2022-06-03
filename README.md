@@ -1,2 +1,2 @@
 # ProjetosNariana
- Respositorio ADS
+Códigos criados durante o curso de ADS/SENAI
