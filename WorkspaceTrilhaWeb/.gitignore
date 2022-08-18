@@ -1,0 +1,6 @@
+.idea/*
+.metadata/*
+.settings/*
+build/*
+.classpath
+.project
